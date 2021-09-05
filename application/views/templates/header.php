@@ -9,9 +9,6 @@
         <!-- Fontawesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
         <!-- Datatables CSS-->
-
-        
-       
         
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap5.min.css">
@@ -21,7 +18,7 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #112E48;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #897AAA;">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="<?php echo base_url(); ?>">Opportunity-Management</a>
@@ -45,7 +42,7 @@
                 <a class="nav-link" href="<?php echo base_url(); ?>accounts">Accounts</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>opportuinity">Opportuinities</a>
+                <a class="nav-link" href="<?php echo base_url(); ?>opportuinities">Opportuinities</a>
                 </li>
                 <?php endif; ?>
             </ul>
@@ -58,7 +55,7 @@
                 <a class="nav-link" href="<?php echo base_url(); ?>accounts/create">Create Account</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>opportuinity/create">Create Opportunity</a>
+                <a class="nav-link" href="<?php echo base_url(); ?>opportuinities/create">Create Opportunity</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>

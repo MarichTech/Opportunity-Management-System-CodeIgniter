@@ -60,6 +60,8 @@
 
                 //Login user
                 $user_id = $this->user_model->login($username, $password);
+
+                print_r($user_id);
                 
                 if($user_id){
                     //Create session

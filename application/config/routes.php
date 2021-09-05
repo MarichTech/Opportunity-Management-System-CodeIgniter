@@ -8,11 +8,13 @@ $route['users/login'] = 'users/login';
 
 $route['accounts/create'] = 'accounts/create';
 $route['accounts/update'] = 'accounts/update';
+$route['accounts/(:any)'] = 'accounts/view/$1';
 $route['accounts'] = 'accounts/index';
 
-$route['opportuinity/create'] = 'opportuinity/create';
-$route['opportuinity/update'] = 'opportuinity/update';
-$route['opportuinity'] = 'opportuinitysts/index';
+
+$route['opportuinities/create'] = 'opportuinities/create';
+$route['opportuinities/update'] = 'opportuinities/update';
+$route['opportuinities'] = 'opportuinities/index';
 
 $route['(:any)'] = 'pages/view/$1';
 

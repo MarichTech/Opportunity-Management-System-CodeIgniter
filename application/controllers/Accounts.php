@@ -16,19 +16,22 @@
             $this->load->view('templates/footer');
         }
 
-        public function view($name = NULL){
+        public function view($id = NULL){
             // Check if user is Logged In
             if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             }
+            
 
-            $data['account'] = $this->account_model->get_accounts($name);
+            $data['account'] = $this->account_model->get_accounts($id);
+            $data['opportuinities'] = $this->opportuinity_model->get_account_opportuinities($id);
+            
 
             if(empty($data['account'])){
               show_404();
             }
-
-            $data['title'] = $data['account']['title'];
+            
+            $data['title'] = 'View';
 
             $this->load->view('templates/header');
             $this->load->view('accounts/view',$data);
@@ -57,9 +60,32 @@
                 $this->load->view('accounts/create',$data);
                 $this->load->view('templates/footer');
             }else{
-                //If form is valid
+                 //If form is valid
+                //Upload Image
+                $config = array(
+                    'upload_path' => "./assets/images/posts",
+                    'allowed_types' => "gif|jpg|png|jpeg|pdf",
+                    'overwrite' => TRUE,
+                    'max_size' => "2048", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+                    'max_height' => "768",
+                    'max_width' => "1024"
+                    );
+                    $this->load->library('upload', $config);
+                    if($this->upload->do_upload())
+                    {
+                        $data = array('upload_data' => $this->upload->data());
+                        $post_image = $_FILES['userfile']['name'];
+                    }
+                    else
+                    {
+                        $errors = array('error' => $this->upload->display_errors());
+                       
+                        $post_image = 'noimage.png';
+                    }
+               
+               
                 //Create Account
-                $this->account_model->create_account();
+                $this->account_model->create_account($post_image);
 
                 //Set message
                 $this->session->set_flashdata('account_created', 'Your account has been created');
@@ -83,15 +109,15 @@
             redirect('accounts');
         }
 
-        public function edit($name){
+        public function edit($id){
             // Check if user is Logged In
             if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             } 
 
-            $data['account'] = $this->account_model->get_accounts($name);
+            $data['account'] = $this->account_model->get_accounts($id);
 
-            if($this->session->userdata('user_id') != $this-> account_model->get_accounts($name)['user_id']){
+            if($this->session->userdata('user_id') != $this-> account_model->get_accounts($id)['user_id']){
                 redirect('accounts'); 
             }
             
@@ -121,4 +147,7 @@
             //Redirect accounts once accounts is update
             redirect('accounts');
         }
+
+
+
     }

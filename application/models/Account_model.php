@@ -5,9 +5,10 @@
             $this->load->database();
         }
 
-        public function get_accounts($name = FALSE){
+
+        public function get_accounts($id = FALSE){
             // Check if name has been passed(not null/empty)
-            if($name === FALSE){
+            if($id === FALSE){
                 //If name is not empty get single account by name
                 $this->db->order_by('accounts.id','DESC');
                 $query = $this->db->get_where('accounts', array('user_id' => $this->session->userdata('user_id')));
@@ -15,11 +16,11 @@
             }
 
              //If name is empty all accounts
-            $query = $this->db->get_where('accounts', array('name' => $name));
+            $query = $this->db->get_where('accounts', array('id' => $id));
             return $query->row_array();
         }
 
-        public function create_account(){
+        public function create_account($post_image){
             //Create an array to hold account details we want to store in db
             $data = array(
                 //Format 'name_of_db_column' => data you want to store in the column(you can use post to get data from form)
@@ -27,7 +28,8 @@
                 'email' => $this->input->post('email'),
                 'phonenumber' => $this->input->post('phonenumber'),
                 'address' => $this->input->post('address'),
-                'user_id' => $this->session->userdata('user_id')
+                'user_id' => $this->session->userdata('user_id'),
+                'post_image' => $post_image
             );
 
             return $this->db->insert('accounts', $data);

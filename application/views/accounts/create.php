@@ -2,7 +2,7 @@
 
 <!--<?php echo validation_errors(); ?> -->
 
-<?php echo form_open('accounts/create'); ?>
+<?php echo form_open_multipart('accounts/create'); ?>
     <div class="mb-3">
       <label class="form-label">Name</label>
       <input type="text" class="form-control" name="name" placeholder="Add Account Name">
@@ -25,6 +25,12 @@
       <label class="form-label">Address</label>
       <input type="text" class="form-control"  name="address" placeholder="Add Account Address">
       <?php echo form_error('address'); ?>
+    </div>
+
+    <div  class="mb-3">
+      <label class="form-label">Upload Image</label>
+      <input type="file" class="form-control"  name="userfile" size="20">
+    
     </div>
 
     <button class="btn btn-primary" type="submit">Submit </button>
