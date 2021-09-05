@@ -1,29 +1,30 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row">
+<div class="row">
     <div class="col-md-10">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $account['post_image']; ?>" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $account['name']; ?></h5>
-          <p class="card-text">Phone Number: <?php echo $account['phonenumber']; ?></p>
-          <p class="card-text">Physical Address: <?php echo $account['address']; ?></p>
-          <p class="card-text">Email: <?php echo $account['email']; ?></p>
-          <p class="card-text"><small class="text-muted">Created On: <?php echo $account['created_on']; ?></small></p>
+
+        <div class="card  mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $account['post_image']; ?>" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><?php echo $account['name']; ?></h5>
+                  <p class="card-text">Phone Number: <?php echo $account['phonenumber']; ?></p>
+                  <p class="card-text">Physical Address: <?php echo $account['address']; ?></p>
+                  <p class="card-text">Email: <?php echo $account['email']; ?></p>
+                  <p class="card-text"><small class="text-muted">Created On: <?php echo $account['created_on']; ?></small></p>
+                </div>
+              </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-    </div>
+
     <div class="col-md-2">
-    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Add Opportuinity
-</button>
+        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Add Opportuinity
+    </button>
     </div>
   </div>
-</div>
-
 
 
 
